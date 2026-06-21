@@ -122,7 +122,7 @@ if uploaded_files and api_key:
             """
             
             try:
-                model = genai.GenerativeModel('gemini-1.5-flash')
+                model = genai.GenerativeModel('gemini-2.5-flash')
                 response = model.generate_content([
                     {'mime_type': file.type, 'data': file_bytes},
                     prompt
