@@ -92,19 +92,19 @@ def map_income_type(raw_type, rate):
     return raw_type
 
 uploaded_files = st.file_uploader(
-    "ลากไฟล์ PDF หรือรูปภาพใบหักภาษี ณ ที่จ่ายมาวางตรงนี้ (เวอร์ชัน High-Speed)", 
+    "ลากไฟล์ PDF หรือ รูปภาพ ใบหักภาษี ณ ที่จ่าย มาวางตรงนี้)", 
     type=["pdf", "jpg", "jpeg"], 
     accept_multiple_files=True
 )
 
 if uploaded_files and api_key:
-    if st.button("🚀 เริ่มประมวลผลความเร็วสูง", type="primary"):
+    if st.button("🚀 เริ่มประมวลผล", type="primary"):
         all_extracted_items = []
         progress_bar = st.progress(0)
         status_text = st.empty()
         
         for idx, file in enumerate(uploaded_files):
-            status_text.text(f"⚡ กำลังประมวลผลอย่างรวดเร็ว ไฟล์ที่ {idx+1}/{len(uploaded_files)}: {file.name} ...")
+            status_text.text(f"⚡ กำลังประมวลผล ไฟล์ที่ {idx+1}/{len(uploaded_files)}: {file.name} ...")
             file_bytes = file.read()
             
             prompt = """
@@ -192,7 +192,7 @@ if uploaded_files and api_key:
         status_text.empty()
 
 if st.session_state.pnd3_content or st.session_state.pnd53_content:
-    st.success("🎉 ประมวลผลข้อมูลและจัดเรียงวันที่แบบ High-Speed เสร็จสมบูรณ์!")
+    st.success("🎉 ประมวลผลข้อมูลและจัดเรียงวันที่ เสร็จสมบูรณ์!")
     col1, col2 = st.columns(2)
     with col1:
         st.metric(label="รายการ ภ.ง.ด. 3 (บุคคล)", value=f"{st.session_state.pnd3_count} รายการ")
