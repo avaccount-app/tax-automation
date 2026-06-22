@@ -6,15 +6,15 @@ import google.generativeai as genai
 # 1. ตั้งค่าหน้าเว็บหน้าแรก
 st.set_page_config(page_title="ระบบแปลงไฟล์ภาษี หัก ณ ที่จ่าย", page_icon="📄", layout="wide")
 
-st.title("⚡ ระบบแปลงเอกสารภาษี หัก ณ ที่จ่าย (High-Speed Version)")
-st.subheader("เวอร์ชันความเร็วสูงเชื่อมต่อโดเมนบริษัท (ลบคอมมาในจำนวนเงินแล้ว)")
+st.title("⚡ ระบบแปลงเอกสารภาษี หัก ณ ที่จ่าย (Version Web App)")
+st.subheader("เวอร์ชัน Web App")
 
 # 2. ดึงข้อมูลผ่าน Streamlit Secrets
 try:
     api_key = st.secrets["GEMINI_API_KEY"]
     genai.configure(api_key=api_key)
     st.sidebar.header("🔑 การตั้งค่าระบบ")
-    st.sidebar.success("🟢 API Key พร้อมใช้งานระดับความเร็วสูงถาวร")
+    st.sidebar.success("🟢 API Key พร้อมใช้งาน")
 except Exception:
     st.sidebar.header("🔑 การตั้งค่าระบบ")
     st.sidebar.error("❌ ไม่พบ API Key ในระบบหลังบ้าน กรุณาตั้งค่าใน Secrets")
